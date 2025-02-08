@@ -1,8 +1,15 @@
 package com.github.poitchin.common.event;
 
 import com.github.poitchin.SoulboundRemnants;
+import com.github.poitchin.common.DeathMessageHelper;
 import com.github.poitchin.common.config.Config;
+import net.minecraft.ChatFormatting;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.ClickEvent;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.HoverEvent;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.tags.TagKey;
@@ -10,9 +17,13 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.GameType;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.Optional;
 
 @Mod.EventBusSubscriber(modid = SoulboundRemnants.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CommonEvents {
@@ -53,6 +64,10 @@ public class CommonEvents {
                 }
             }
         }
+
+        // Send a chat message with the death coordinates.
+        Component deathCoordMsg = DeathMessageHelper.buildDeathMessage(player);
+        player.sendSystemMessage(deathCoordMsg);
     }
 
     /**
