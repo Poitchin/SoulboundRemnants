@@ -1,0 +1,19 @@
+#Keep armor items on death
+keepArmor = true
+#Keep tiered items (tools, weapons, etc.) on death
+keepTiered = true
+#Keep bows on death
+keepBows = true
+#Keep crossbows on death
+keepCrossbows = true
+#Keep tridents on death
+keepTridents = true
+#Keep shields on death
+keepShields = true
+#Keep elytra on death
+keepElytra = true
+#If true, the additional items list will be used to keep items on death
+useAdditionalItemsList = false
+#List of additional items to keep on death (as resource locations, e.g. 'minecraft:diamond')
+keepItemsList = []
+
