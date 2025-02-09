@@ -20,6 +20,7 @@ public class DeathMessageHelper {
      * - The dimension the player is in,
      * - The horizontal distance (in blocks) from the player's respawn point.
      * If the player's game mode is not survival, the coordinates are clickable to teleport.
+     * TODO: fix distance calculation in the nether.
      *
      * @param player The server player who died.
      * @return The formatted chat Component.
