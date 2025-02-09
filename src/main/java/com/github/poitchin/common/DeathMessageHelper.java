@@ -30,6 +30,7 @@ public class DeathMessageHelper {
         double y = player.getY();
         double z = player.getZ();
 
+        /**
         // Get the player's respawn position or fallback to the world spawn.
         BlockPos respawnPos = Optional.ofNullable(player.getRespawnPosition())
                 .orElse(player.level().getSharedSpawnPos());
@@ -39,6 +40,7 @@ public class DeathMessageHelper {
         int dx = deathPos.getX() - respawnPos.getX();
         int dz = deathPos.getZ() - respawnPos.getZ();
         int blocksAway = (int) Math.floor(Math.sqrt(dx * dx + dz * dz));
+        */
 
         // Get the current dimension name.
         ResourceKey<Level> dimensionKey = player.level().dimension();
@@ -52,12 +54,12 @@ public class DeathMessageHelper {
                                     .withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/tp @s " + x + " " + y + " " + z))
                                     .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Component.literal("Click to teleport")))
                                     .withColor(ChatFormatting.GREEN)))
-                    .append(Component.literal(" in dimension " + dimensionName + " "))
-                    .append(Component.literal("(" + blocksAway + " blocks away)"));
+                    .append(Component.literal(" in dimension " + dimensionName));
+                    //.append(Component.literal("(" + blocksAway + " blocks away)"));
         } else {
             message = Component.literal("You died at " + String.format("[%1.0f, %1.0f, %1.0f]", x, y, z))
-                    .append(Component.literal(" in dimension " + dimensionName + " "))
-                    .append(Component.literal("(" + blocksAway + " blocks away)"));
+                    .append(Component.literal(" in dimension " + dimensionName));
+                    //.append(Component.literal("(" + blocksAway + " blocks away)"));
         }
         return message;
     }

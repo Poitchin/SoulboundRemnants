@@ -2,6 +2,12 @@
   "replace": false,
   "values": [
     "alexscaves:raygun",
-    "alexscaves:ortholance"
+    "alexscaves:ortholance",
+    "alexscaves:sea_staff",
+    "alexscaves:magic_conch",
+    "alexscaves:submarine",
+    "alexscaves:frostmint_spear",
+    "alexscaves:sugar_staff",
+    "alexscaves:shot_gum"
   ]
 }
