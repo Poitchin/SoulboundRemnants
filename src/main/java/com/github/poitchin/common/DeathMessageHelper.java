@@ -14,7 +14,6 @@ import java.util.Optional;
 
 public class DeathMessageHelper {
     /**
-     * Builds the death message Component for a given player.
      *
      * The message includes:
      * - The death coordinates,
@@ -30,7 +29,7 @@ public class DeathMessageHelper {
         double y = player.getY();
         double z = player.getZ();
 
-        // Get the player's respawn position (bed / /spawnpoint) or fallback to the world spawn.
+        // Get the player's respawn position or fallback to the world spawn.
         BlockPos respawnPos = Optional.ofNullable(player.getRespawnPosition())
                 .orElse(player.level().getSharedSpawnPos());
 

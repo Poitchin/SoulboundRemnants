@@ -2,7 +2,6 @@
   "replace": false,
   "values": [
     "alexscaves:raygun",
-    "alexscaves:ortholance",
-    "farmersdelight:skillet"
+    "alexscaves:ortholance"
   ]
 }

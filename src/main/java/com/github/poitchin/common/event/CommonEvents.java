@@ -40,7 +40,6 @@ public class CommonEvents {
         if (player.level().isClientSide()) {
             return;
         }
-
         // Process the main inventory:
         for (int i = 0; i < player.getInventory().items.size(); i++) {
             ItemStack stack = player.getInventory().items.get(i);
@@ -64,7 +63,6 @@ public class CommonEvents {
                 }
             }
         }
-
         // Send a chat message with the death coordinates.
         Component deathCoordMsg = DeathMessageHelper.buildDeathMessage(player);
         player.sendSystemMessage(deathCoordMsg);
