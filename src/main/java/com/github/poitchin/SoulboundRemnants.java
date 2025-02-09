@@ -45,8 +45,6 @@ public class SoulboundRemnants {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // Some common setup code
-        LOGGER.info("HELLO FROM COMMON SETUP");
 
     }
 
@@ -58,8 +56,6 @@ public class SoulboundRemnants {
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
-        // Do something when the server starts
-        LOGGER.info("HELLO from server starting");
         MinecraftServer server = event.getServer();
         server.getGameRules().getRule(GameRules.RULE_KEEPINVENTORY).set(true, server);
     }
@@ -70,8 +66,6 @@ public class SoulboundRemnants {
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
