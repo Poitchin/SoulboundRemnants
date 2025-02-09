@@ -21,7 +21,7 @@ import java.util.Optional;
 @Mod.EventBusSubscriber(modid = SoulboundRemnants.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CommonEvents {
 
-    public static final TagKey<Item> KEEP_ON_DEATH = TagKey.create(Registries.ITEM, new ResourceLocation("deathreworked", "keep_on_death"));
+    public static final TagKey<Item> KEEP_ON_DEATH = TagKey.create(Registries.ITEM, new ResourceLocation("soulboundremnants", "keep_on_death"));
 
     @SubscribeEvent
     public static void onPlayerDeath(LivingDeathEvent event) {
@@ -74,26 +74,25 @@ public class CommonEvents {
             return true;
         }
         // Existing checks for known types, respecting config toggles.
-        if (stack.getItem() instanceof ArmorItem && Config.KEEP_ARMOR.get()) {
+        if (stack.getItem() instanceof ArmorItem && Config.keepArmorFlag) {
             return true;
         }
-        if (stack.getItem() instanceof TieredItem && Config.KEEP_TIERED.get()) {
+        if (stack.getItem() instanceof TieredItem && Config.keepTieredFlag) {
             return true;
         }
-        if (stack.getItem() instanceof ProjectileWeaponItem && Config.KEEP_BOWS.get()) {
+        if (stack.getItem() instanceof ProjectileWeaponItem && Config.keepBowsFlag) {
             return true;
         }
-        if (stack.getItem() instanceof TridentItem && Config.KEEP_TRIDENTS.get()) {
+        if (stack.getItem() instanceof TridentItem && Config.keepTridentsFlag) {
             return true;
         }
-        if (stack.getItem() instanceof ShieldItem && Config.KEEP_SHIELDS.get()) {
+        if (stack.getItem() instanceof ShieldItem && Config.keepShieldsFlag) {
             return true;
         }
-        if (stack.getItem() instanceof ElytraItem && Config.KEEP_ELYTRA.get()) {
+        if (stack.getItem() instanceof ElytraItem && Config.keepElytraFlag) {
             return true;
         }
-        // Finally, check if the item is in the custom tag.
-        return stack.is(KEEP_ON_DEATH);
+        return stack.is(KEEP_ON_DEATH) && Config.keepAdditionalItemsFlag;
     }
 
 }
